@@ -1,0 +1,185 @@
+@import '../../styles/mixins/flex.scss';
+.tabs {
+  @include flex(row, center);
+  &__tab {
+    @include flex(row, center, center);
+    margin-top: 10%;
+    height: 30px;
+    width: 50%;
+    &--inactive {
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+    }
+    &--active {
+      background-color: #f2bc6b;
+      border: 1px solid #f2bc6b;
+      color: #ffffff;
+    }
+    &--first {
+      border-radius: 5px 0 0 5px;
+    }
+    &--second {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
+
+.order {
+  border-radius: 10px;
+  box-shadow: 0px 3px 20px #12121226;
+  margin: 20px 0;
+  padding: 15px;
+  &__header {
+    @include flex(column);
+    &__state {
+      border-radius: 5px;
+      font-size: 0.8em;
+      margin-right: auto;
+      padding: 0 5px;
+      &--PENDIENTE,
+      &--PENDIENTE_DE_PAGO {
+        background-color: #e9e9e9;
+        border: 1px solid grey;
+        color: #000000;
+      }
+      &--ACEPTADO,
+      &--PAGADO {
+        background-color: #71aa33;
+        border: 1px solid green;
+        color: #ffffff;
+      }
+      &--EN_ENVIO,
+      &--POR_RECOJER {
+        background-color: #007eff;
+        border: 1px solid blue;
+        color: #ffffff;
+      }
+      &--CANCELADO,
+      &--RECHAZADO {
+        background-color: #ad1921;
+        border: 1px solid red;
+        color: #ffffff;
+      }
+      &--FINALIZADO {
+        background-color: #f2bc6b;
+        border: 1px solid yellow;
+        color: #ffffff;
+      }
+      &-container {
+        @include flex();
+        @include alignItems();
+        ion-icon {
+          font-size: 1.2em;
+        }
+      }
+    }
+    &__correlative {
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-top: 7px;
+    }
+  }
+  &__body {
+    &__details {
+      @include flex();
+      @include alignItems();
+      &__image-container {
+        border-radius: 5px;
+        height: 50px;
+        position: relative;
+        overflow: hidden;
+        width: 50px;
+        img {
+          object-fit: cover;
+        }
+      }
+      &__product {
+        &-details {
+          @include flex(column);
+          margin-left: 10px;
+          margin-right: auto;
+          span {
+            font-size: 0.8em;
+          }
+        }
+        &__price {
+          font-weight: bold;
+          margin-top: 5px;
+        }
+      }
+      &__quantity {
+        background-color: lightgrey;
+        border: 1px solid grey;
+        border-radius: 5px;
+        height: 30px;
+        padding: 5px;
+        text-align: center;
+        width: 30px;
+      }
+    }
+    &__price {
+      margin-left: auto;
+      &-container {
+        @include flex();
+        border-top: 1px solid #e9e9e9;
+        margin-top: 15px;
+        padding-top: 7px;
+        span {
+          font-size: 0.8em;
+        }
+      }
+    }
+    &__payment {
+      @include flex();
+      margin: 15px 0;
+      ion-button {
+        text-transform: none;
+        margin: 0 5px;
+        width: 50%;
+      }
+    }
+    &__options {
+      @include flex(row, center);
+      margin: 20px 0 5px;
+      &__option {
+        @include flex(column, center, center);
+        border: 1px solid #12121226;
+        height: 50px;
+        width: 40%;
+        span {
+          font-size: 0.7em;
+          margin-top: 5px;
+        }
+        &--left {
+          border-radius: 15px 0 0 15px;
+        }
+        &--right {
+          border-radius: 0 15px 15px 0;
+        }
+      }
+    }
+  }
+}
+
+.bullet {
+  bottom: 3px;
+  border-radius: 50%;
+  position: absolute;
+  height: 10px;
+  right: 5px;
+  width: 10px;
+  &--approved {
+    background-color: green;
+  }
+  &--rejected {
+    background-color: red;
+  }
+}
+
+.empty {
+  color: lightgray;
+  font-size: 1.7em;
+  margin-top: 60%;
+  text-align: center;
+}

@@ -1,0 +1,26 @@
+@import '../../styles/mixins/flex.scss';
+.tabs {
+  @include flex(row, center);
+  &__tab {
+    @include flex(row, center, center);
+    margin-top: 10%;
+    height: 30px;
+    width: 50%;
+    &--inactive {
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+    }
+    &--active {
+      background-color: #f2bc6b;
+      border: 1px solid #f2bc6b;
+      color: #ffffff;
+    }
+    &--first {
+      border-radius: 5px 0 0 5px;
+    }
+    &--second {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}

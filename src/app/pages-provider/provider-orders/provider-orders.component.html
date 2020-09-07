@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis órdenes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="tabs">
+    <div
+      [class]="
+        'tabs__tab tabs__tab--first tabs__tab' +
+        (isHistoric ? '--inactive' : '--active')
+      "
+      (tap)="changeToHistoric(false)"
+    >
+      En curso
+    </div>
+    <div
+      [class]="
+        'tabs__tab tabs__tab--second tabs__tab' +
+        (isHistoric ? '--active' : '--inactive')
+      "
+      (tap)="changeToHistoric(true)"
+    >
+      Historial
+    </div>
+  </div>
+  <ng-container *ngIf="!isHistoric; else historicTpl">
+    <ng-container
+      *ngIf="ordersQuery.pendings$ | async as pendings; else emptyTpl"
+    >
+      <ng-container *ngFor="let order of pendings">
+        <div class="order">
+          <div [class]="'order__state order__state--' + order.state">
+            {{ order.state.toLowerCase().replace('_', ' ').replace('_', ' ') }}
+          </div>
+          <div class="order__details">
+            <div class="order__details__customer">
+              <span class="order__details__customer__correlative"
+                >Orden N° 000001</span
+              >
+              <span class="order__details__customer__name">Prueba Prueba</span>
+            </div>
+            <ion-select placeholder="Cambiar estado" cancelText="Cancelar">
+              <ion-select-option value="paid">Pagado</ion-select-option>
+              <ion-select-option value="rejected">Rechazado</ion-select-option>
+            </ion-select>
+            <ion-icon name="chevron-forward" color="primary"></ion-icon>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <ng-template #historicTpl>
+    <ng-container
+      *ngIf="ordersQuery.pendings$ | async as pendings; else emptyTpl"
+    >
+      <ng-container *ngFor="let order of pendings">
+        <div></div>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+  <ng-template #emptyTpl>
+    <div class="empty">
+      <h1>
+        {{
+          isHistoric
+            ? 'No tienes pedidos concluidos'
+            : 'No tienes pedidos en curso'
+        }}
+      </h1>
+    </div>
+  </ng-template>
+</ion-content>

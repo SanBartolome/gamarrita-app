@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        icon="chevron-back-outline"
+        text=""
+        defaultHref="/provider-app/home/home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Estadísticas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="tabs">
+    <div
+      [class]="
+        'tabs__tab tabs__tab--first tabs__tab' +
+        (isHistoric ? '--inactive' : '--active')
+      "
+      (tap)="changeToHistoric(false)"
+    >
+      Local
+    </div>
+    <div
+      [class]="
+        'tabs__tab tabs__tab--second tabs__tab' +
+        (isHistoric ? '--active' : '--inactive')
+      "
+      (tap)="changeToHistoric(true)"
+    >
+      Gamarra
+    </div>
+  </div>
+  <ng-container *ngIf="!isHistoric; else globalTpl">
+    <div>
+      <h1>Ventas en mis locales</h1>
+      <img src="/assets/images/local.png" />
+    </div>
+  </ng-container>
+  <ng-template #globalTpl>
+    <div>
+      <h1>Ventas en Gamarra</h1>
+      <img src="/assets/images/global.png" />
+    </div>
+  </ng-template>
+</ion-content>

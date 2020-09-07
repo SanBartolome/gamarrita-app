@@ -1,0 +1,43 @@
+@import '../../styles/mixins/flex.scss';
+
+.product {
+  @include flex();
+  @include alignItems(center);
+  border-bottom: 1px solid #007eff;
+  &__image {
+    img {
+      border-radius: 50%;
+      height: 60px;
+      object-fit: cover;
+      width: 60px;
+    }
+  }
+  &__details {
+    @include flex(column);
+    margin-left: 10px;
+    h6,
+    p {
+      margin: 0;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+  &__options {
+    @include flex();
+    margin-left: auto;
+    &__option {
+      @include flex(column);
+      @include alignItems(center);
+      margin-left: 7px;
+      p {
+        font-size: 10px;
+        margin: 0;
+      }
+    }
+  }
+}
+.products {
+  padding: 0;
+  margin-bottom: 0;
+}

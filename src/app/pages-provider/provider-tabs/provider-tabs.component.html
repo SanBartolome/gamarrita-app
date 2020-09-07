@@ -1,0 +1,18 @@
+<ion-tabs (ionTabsDidChange)="cdr.detectChanges()">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon [size]="8" name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="my-orders">
+      <ion-icon [size]="8" name="time-outline"></ion-icon>
+      <ion-label>Pedidos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="my-account">
+      <ion-icon [size]="8" name="person-outline"></ion-icon>
+      <ion-label>Mi cuenta</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

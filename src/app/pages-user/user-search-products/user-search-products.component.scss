@@ -1,0 +1,41 @@
+.bot-message {
+  border: 1px solid #f2bc6b;
+  border-radius: 10px;
+  max-width: 80%;
+  padding: 15px;
+  width: fit-content;
+}
+
+.bot-options {
+  background-color: #007eff;
+  border: 1px solid #007eff;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.8em;
+  margin: 5px 0;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.user-options {
+  border: 1px solid #f2bc6b;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  max-width: 81%;
+  padding: 15px;
+  width: fit-content;
+}
+
+.input {
+  border: 1px solid #007eff;
+  border-radius: 15px;
+  line-height: 18px;
+  padding: 10px 15px;
+  width: 100%;
+  &-container {
+    bottom: 15px;
+    position: absolute;
+    width: 91%;
+  }
+}

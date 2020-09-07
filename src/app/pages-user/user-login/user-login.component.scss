@@ -1,0 +1,38 @@
+@import '../../styles/mixins/flex.scss';
+
+.login-bg {
+  @include flex(column, center, center);
+  background-image: url('/assets/images/login-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.login {
+  @include flex(column, center, center);
+  margin-top: 40px;
+  ion-input {
+    background-color: #ffffff;
+    border: 1px solid #f2bc6b;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+  }
+  ion-button {
+    --border-radius: 15px;
+    width: 100%;
+  }
+  p {
+    font-weight: bold;
+    margin-top: 30px;
+    a {
+      color: #f2bc6b;
+      text-decoration: underline;
+    }
+  }
+}
+img {
+  position: absolute;
+  top: 10px;
+  right: 5%;
+  width: 90%;
+}

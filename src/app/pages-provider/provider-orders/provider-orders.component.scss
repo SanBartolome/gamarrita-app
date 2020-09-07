@@ -1,0 +1,104 @@
+@import '../../styles/mixins/flex.scss';
+.tabs {
+  @include flex(row, center);
+  &__tab {
+    @include flex(row, center, center);
+    margin-top: 10%;
+    height: 30px;
+    width: 50%;
+    &--inactive {
+      background-color: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+    }
+    &--active {
+      background-color: #007eff;
+      border: 1px solid #007eff;
+      color: #ffffff;
+    }
+    &--first {
+      border-radius: 5px 0 0 5px;
+    }
+    &--second {
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
+
+.order {
+  @include flex(column);
+  border: 1px solid #007eff;
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 15px;
+  &__state {
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    padding: 0 5px;
+    width: fit-content;
+    &--PENDIENTE,
+    &--PENDIENTE_DE_PAGO {
+      background-color: #e9e9e9;
+      border: 1px solid grey;
+      color: #000000;
+    }
+    &--ACEPTADO,
+    &--PAGADO {
+      background-color: #71aa33;
+      border: 1px solid green;
+      color: #ffffff;
+    }
+    &--EN_ENVIO,
+    &--POR_RECOJER {
+      background-color: #007eff;
+      border: 1px solid blue;
+      color: #ffffff;
+    }
+    &--CANCELADO,
+    &--RECHAZADO {
+      background-color: #ad1921;
+      border: 1px solid red;
+      color: #ffffff;
+    }
+    &--FINALIZADO {
+      background-color: #f2bc6b;
+      border: 1px solid yellow;
+      color: #ffffff;
+    }
+  }
+  &__details {
+    @include flex();
+    @include alignItems();
+    &__customer {
+      @include flex(column);
+      &__correlative {
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      &__name {
+        color: grey;
+        font-size: 0.8em;
+      }
+    }
+    ion-select {
+      font-size: 0.9em;
+      margin-left: 5px;
+    }
+    ion-icon {
+      font-size: 1.5em;
+      margin-left: auto;
+    }
+  }
+}
+
+.empty {
+  @include flex(row, center, center);
+  h1 {
+    color: lightgray;
+    font-size: 1.7em;
+    margin-top: 60%;
+    text-align: center;
+  }
+}

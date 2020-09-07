@@ -1,0 +1,14 @@
+@import '../../styles/mixins/flex.scss';
+
+.shopping-cart {
+  @include flex(column, center, center);
+  height: 100%;
+  ion-icon {
+    font-size: 2em;
+    color: lightgray;
+  }
+  h1 {
+    color: lightgray;
+    text-align: center;
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../styles/mixins/flex.scss';
+
+.create-product {
+  &__item {
+    @include flex();
+    @include alignItems();
+    border: 1px solid #007eff;
+    border-radius: 5px;
+    line-height: 25px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    span {
+      font-size: 0.8em;
+      width: 50%;
+      border-right: 1px solid #007eff;
+    }
+    input {
+      border: none;
+      font-size: 0.8em;
+      text-align: right;
+      width: 50%;
+    }
+  }
+}
+
+.steps {
+  @include flex(row, center, center);
+  margin-bottom: 20%;
+  &__circle {
+    @include flex(row, center, center);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: #12121226;
+    color: #000000;
+    &--active {
+      background-color: #007eff;
+      color: #ffffff;
+    }
+  }
+  &__line {
+    height: 5px;
+    width: 40px;
+    background-color: #12121226;
+    &--active {
+      background-color: #007eff;
+    }
+  }
+}
+
+ion-button {
+  position: absolute;
+  text-transform: none;
+  bottom: 20px;
+  width: 91%;
+}

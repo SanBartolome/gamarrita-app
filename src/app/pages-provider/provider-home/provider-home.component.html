@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ul>
+    <li
+      class="ripple-container ion-activatable"
+      routerLink="/provider-app/home/my-products"
+    >
+      <ion-ripple-effect></ion-ripple-effect> <span>Mis productos</span>
+    </li>
+    <li
+      class="ripple-container ion-activatable"
+      routerLink="/provider-app/home/create-product"
+    >
+      <ion-ripple-effect></ion-ripple-effect> <span>Crear producto</span>
+    </li>
+    <li
+      class="ripple-container ion-activatable"
+      routerLink="/provider-app/home/manage-shop"
+    >
+      <ion-ripple-effect></ion-ripple-effect> <span>Gestionar tiendas</span>
+    </li>
+    <li
+      class="ripple-container ion-activatable"
+      routerLink="/provider-app/home/statistics"
+    >
+      <ion-ripple-effect></ion-ripple-effect> <span>Ver estadísticas</span>
+    </li>
+  </ul>
+</ion-content>

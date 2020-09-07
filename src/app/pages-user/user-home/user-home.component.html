@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="home-header">
+      <div class="home-header__title">
+        <ion-icon class="logo" name="pricetags-outline"></ion-icon>
+        <h6>Gamarra</h6>
+        <ion-icon class="favorite" name="heart-outline"></ion-icon>
+        <ion-icon
+          class="cart"
+          name="cart-outline"
+          routerLink="/user-shopping-cart"
+        ></ion-icon>
+      </div>
+      <ion-searchbar placeholder="¿Qué busca?"></ion-searchbar>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ng-container *ngIf="categoriesQuery.categories$ | async as categories">
+    <ng-container *ngFor="let category of categories">
+      <div class="home">
+        <div class="home__category">
+          <h4>{{ category.name }}</h4>
+          <p>Ver más...</p>
+        </div>
+        <ng-container [ngSwitch]="category.name">
+          <div *ngSwitchCase="'Niño'" class="home__products">
+            <ng-container
+              *ngFor="let product of productsQuery.productsMaleKids$ | async"
+            >
+              <div class="home__products__product">
+                <div class="home__products__product__image">
+                  <img [src]="product.imagesUrl[0]" />
+                </div>
+                <h6>{{ product.name }}</h6>
+                <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+                <button>Ver detalles</button>
+              </div>
+            </ng-container>
+          </div>
+          <div *ngSwitchCase="'Niña'" class="home__products">
+            <ng-container
+              *ngFor="let product of productsQuery.productsFemaleKids$ | async"
+            >
+              <div class="home__products__product">
+                <div class="home__products__product__image">
+                  <img [src]="product.imagesUrl[0]" />
+                </div>
+                <h6>{{ product.name }}</h6>
+                <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+                <button>Ver detalles</button>
+              </div>
+            </ng-container>
+          </div>
+          <div *ngSwitchCase="'Bebé'" class="home__products">
+            <ng-container
+              *ngFor="let product of productsQuery.productsBabies$ | async"
+            >
+              <div class="home__products__product">
+                <div class="home__products__product__image">
+                  <img [src]="product.imagesUrl[0]" />
+                </div>
+                <h6>{{ product.name }}</h6>
+                <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+                <button>Ver detalles</button>
+              </div>
+            </ng-container>
+          </div>
+          <div *ngSwitchCase="'Hombre'" class="home__products">
+            <ng-container
+              *ngFor="let product of productsQuery.productsMale$ | async"
+            >
+              <div class="home__products__product">
+                <div class="home__products__product__image">
+                  <img [src]="product.imagesUrl[0]" />
+                </div>
+                <h6>{{ product.name }}</h6>
+                <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+                <button>Ver detalles</button>
+              </div>
+            </ng-container>
+          </div>
+          <div *ngSwitchCase="'Mujer'" class="home__products">
+            <ng-container
+              *ngFor="let product of productsQuery.productsFemale$ | async"
+            >
+              <div class="home__products__product">
+                <div class="home__products__product__image">
+                  <img [src]="product.imagesUrl[0]" />
+                </div>
+                <h6>{{ product.name }}</h6>
+                <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+                <button>Ver detalles</button>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+        <ng-template><ion-spinner></ion-spinner></ng-template>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingTpl><ion-spinner></ion-spinner></ng-template>
+</ion-content>

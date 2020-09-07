@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">Chatbot de búsqueda</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="bot-message">¡Hola! ¿En qué puedo ayudarlo?</div>
+  <div *ngFor="let op of options$ | async" class="bot-options-container">
+    <div class="bot-options" (tap)="createUserMessage(op.id)">
+      {{ op.description }}
+    </div>
+  </div>
+  <ng-container *ngIf="!!userMessage">
+    <div class="user-options">{{ userMessage }}</div>
+    <ng-container *ngIf="chatbotMessage$ | async as chatMessage">
+      <div class="bot-message">{{ chatMessage }}</div>
+      <div
+        *ngFor="let op of moreOptions$ | async"
+        class="bot-options-container"
+      >
+        <div class="bot-options">
+          {{ op.description }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div class="input-container">
+    <input class="input" placeholder="Escriba aquí..." />
+  </div>
+</ion-content>

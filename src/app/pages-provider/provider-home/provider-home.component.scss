@@ -1,0 +1,20 @@
+app-assets-image {
+  display: block;
+  text-align: center;
+}
+ul {
+  margin-top: 30%;
+  li {
+    --ripple-color: #{lighten(#007eff, 50%)};
+    border: 2px solid #007eff;
+    color: #007eff;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 85%;
+    padding: 15px;
+    border-radius: 10px;
+  }
+}

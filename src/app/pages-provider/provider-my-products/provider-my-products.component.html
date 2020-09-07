@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button
+        icon="chevron-back-outline"
+        text=""
+        defaultHref="/provider-app/home/home"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ng-container *ngIf="productsQuery.products$ | async as products">
+    <div>
+      <ul *ngFor="let product of products" class="products">
+        <li class="product">
+          <div class="product__image">
+            <img [src]="product.imagesUrl[0]" />
+          </div>
+          <div class="product__details">
+            <h6>{{ product.name }}</h6>
+            <p>Precio: S/ {{ product.price.toFixed(2) }}</p>
+            <p>Stock: {{ product.stock }}</p>
+          </div>
+          <div class="product__options">
+            <div class="product__options__option">
+              <p>Editar</p>
+              <ion-icon name="pencil-outline"></ion-icon>
+            </div>
+            <div class="product__options__option">
+              <p>Eliminar</p>
+              <ion-icon name="trash-outline"></ion-icon>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+  <ng-template #loadingTpl><ion-spinner></ion-spinner></ng-template>
+</ion-content>
